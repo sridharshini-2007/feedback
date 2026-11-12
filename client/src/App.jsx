@@ -21,7 +21,11 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/feedback", feedback);
+      
+      await axios.post(
+  `${import.meta.env.VITE_API_URL}/api/feedback`,
+  feedback
+);
       alert("Feedback submitted successfully!");
       setFeedback({ q1: "", q2: "", q3: "", q4: "", q5: "" });
     } catch (error) {
